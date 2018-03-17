@@ -119,6 +119,31 @@ void HuffmanCode(HCodeType HuffCode[MAXLEAF], int n){
     }
 }
 
+//哈夫曼编码压缩(所有字符的)
+void HuffmanCodeAll(string arr,int n){
+    cout << "下列输出所有文字的Huffman code: " << endl;
+    int arrcount = arr.length();                        //原文章的字符总数
+    int codecount = 0 ;                                     //编码后的所有总数
+    for(int i=0; i<arr.length(); i++){
+        for (int j=0; j<n; j++) {
+            if ( tolower(arr[i]) == HuffNode[j].value) {
+                for(int z=HuffCode[j].start+1;z < n; z++){
+                    cout<<HuffCode[j].bit[z];
+                    codecount++;
+                }
+            }
+        }
+    }
+    cout << endl;
+    cout << "压缩的效率为：" <<endl;
+    codecount = codecount / 8;                                              //计算编码后的字符串总数
+    if( codecount%8 != 0 ){                                                 //除不完情况下，加一处理
+        codecount++;
+    }
+    printf("%.2lf%%\n",(double)(arrcount-codecount)/arrcount*100);          //输出压缩百分比
+}
+
+
 int main() {
     string str;
     int count=0;                                  //统计字符的种类数
@@ -135,6 +160,8 @@ int main() {
     
     HuffmanTree(HuffNode, cnt, count);             //构建哈夫曼树
     HuffmanCode(HuffCode,count);                   //哈夫曼编码
+    HuffmanCodeAll(str,count);                     //哈夫曼编码压缩(所有字符的)
+//    cout << endl;
 //    for (int i=0; i<256; i++) {                 //输出统计的各字符的个数
 //        if (cnt[i]!=0) {
 //            cout << (char)i << ":" <<cnt[i] <<endl;
