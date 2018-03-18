@@ -79,7 +79,8 @@ void HuffmanTree(HNodeType HuffNode[MAXNODE], int arr[], int n){
         HuffNode[n+i].weight = min1+min2;
         HuffNode[n+i].lchild = p1;
         HuffNode[n+i].rchild = p2;
-        cout<<"x1.weight and x2.weight in round "<<i+1<<"\t"<<HuffNode[p1].weight<<"\t"<<HuffNode[p2].weight<<endl;
+        cout << HuffNode[n+i].weight <<"\t" << HuffNode[p1].weight << "\t" << HuffNode[p2].weight <<endl;
+        //cout<<"x1.weight and x2.weight in round "<<i+1<<"\t"<<HuffNode[p1].lchild<<"\t"<<HuffNode[p1].rchild<<"\t"<<HuffNode[p1].weight<<"\t"<<HuffNode[p2].weight<<"\t"<<HuffNode[p2].lchild<<"\t"<<HuffNode[p2].rchild<<"\t"<<endl;
     }
     
 }
@@ -143,6 +144,27 @@ void HuffmanCodeAll(string arr,int n){
     printf("%.2lf%%\n",(double)(arrcount-codecount)/arrcount*100);          //输出压缩百分比
 }
 
+//哈夫曼译码操作
+void HuffmandeCode(int count){
+    string arr;
+    cout << "请输入一串字符串" <<endl;
+    int j = count*2 -2;
+    getline(cin, arr);
+    cout << "下面为译码的结果" <<endl;
+    for (int i=0; i<arr.length(); i++) {
+        if (arr[i] == '0') {
+            j = HuffNode[j].lchild;
+        }else if (arr[i] == '1'){
+            j = HuffNode[j].rchild;
+        }
+        if (HuffNode[j].lchild == -1 && HuffNode[j].rchild == -1) {
+            cout << HuffNode[j].value;
+            j = 8;
+        }
+    }
+    cout <<endl;
+}
+
 
 int main() {
     string str;
@@ -161,6 +183,7 @@ int main() {
     HuffmanTree(HuffNode, cnt, count);             //构建哈夫曼树
     HuffmanCode(HuffCode,count);                   //哈夫曼编码
     HuffmanCodeAll(str,count);                     //哈夫曼编码压缩(所有字符的)
+    HuffmandeCode(count);
 //    cout << endl;
 //    for (int i=0; i<256; i++) {                 //输出统计的各字符的个数
 //        if (cnt[i]!=0) {
