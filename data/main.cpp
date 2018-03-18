@@ -9,6 +9,8 @@
 #include <iostream>
 #include <algorithm>
 #include <cstring>
+#include <fstream>
+#include <cassert>
 using namespace std;
 #define MAXBIT 100             //存放编码
 #define MAXVALUE 1000000       //为后面选取权值最小的两个结点
@@ -159,7 +161,7 @@ void HuffmandeCode(int count){
         }
         if (HuffNode[j].lchild == -1 && HuffNode[j].rchild == -1) {
             cout << HuffNode[j].value;
-            j = 8;
+            j = count*2 -2;;
         }
     }
     cout <<endl;
@@ -170,7 +172,8 @@ int main() {
     string str;
     int count=0;                                  //统计字符的种类数
     cout << "请输入一串字符串" <<endl;
-    getline(cin, str);
+    ifstream inFile("/Users/john/Desktop/34-黄超/data/data/data/test.txt");    // fileName内容读取到file中
+    getline(inFile, str);
     int cnt[256] = {};                          //ascii总共256个
     for (int i=0; i<str.length(); i++) {
         cnt[(int)(tolower(str[i]))]++;          //不区分大小写  tolower函数转换成小写
@@ -179,17 +182,9 @@ int main() {
             count++;
         }
     }
-    
     HuffmanTree(HuffNode, cnt, count);             //构建哈夫曼树
     HuffmanCode(HuffCode,count);                   //哈夫曼编码
     HuffmanCodeAll(str,count);                     //哈夫曼编码压缩(所有字符的)
     HuffmandeCode(count);
-//    cout << endl;
-//    for (int i=0; i<256; i++) {                 //输出统计的各字符的个数
-//        if (cnt[i]!=0) {
-//            cout << (char)i << ":" <<cnt[i] <<endl;
-//        }
-//    }
-//    cout << count <<endl;
     return 0;
 }
