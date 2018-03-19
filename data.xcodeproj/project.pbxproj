@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		52EB6417205CCEB1006274BB /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 52EB6416205CCEB1006274BB /* main.cpp */; };
+		52FD9ADE206010F300E66FA1 /* readme.md in Sources */ = {isa = PBXBuildFile; fileRef = 52FD9ADD206010F300E66FA1 /* readme.md */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -26,6 +27,7 @@
 		52476A2A205E630600BD49C9 /* test.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = test.txt; sourceTree = "<group>"; };
 		52EB6413205CCEB1006274BB /* data */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = data; sourceTree = BUILT_PRODUCTS_DIR; };
 		52EB6416205CCEB1006274BB /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		52FD9ADD206010F300E66FA1 /* readme.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = readme.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +62,7 @@
 			children = (
 				52EB6416205CCEB1006274BB /* main.cpp */,
 				52476A2A205E630600BD49C9 /* test.txt */,
+				52FD9ADD206010F300E66FA1 /* readme.md */,
 			);
 			path = data;
 			sourceTree = "<group>";
@@ -121,6 +124,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				52FD9ADE206010F300E66FA1 /* readme.md in Sources */,
 				52EB6417205CCEB1006274BB /* main.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

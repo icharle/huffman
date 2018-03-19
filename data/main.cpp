@@ -172,7 +172,7 @@ int main() {
     string str;
     int count=0;                                  //统计字符的种类数
     cout << "请输入一串字符串" <<endl;
-    ifstream inFile("test.txt");    // fileName内容读取到file中 （按照实际情况修改）
+    ifstream inFile("test.txt");    // fileName内容读取到file中 （按照实际情况修改)
     getline(inFile, str);
     int cnt[256] = {};                          //ascii总共256个
     for (int i=0; i<str.length(); i++) {
