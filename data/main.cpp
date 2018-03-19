@@ -3,7 +3,7 @@
 //  哈夫曼编码译码器系统
 //
 //  Created by John on 2018/3/1.
-//  Copyright © 2018年 John. All rights reserved.
+//  Copyright © 2018年 Icharle. All rights reserved.
 //
 
 #include <iostream>
@@ -172,7 +172,7 @@ int main() {
     string str;
     int count=0;                                  //统计字符的种类数
     cout << "请输入一串字符串" <<endl;
-    ifstream inFile("/Users/john/Desktop/34-黄超/data/data/data/test.txt");    // fileName内容读取到file中
+    ifstream inFile("test.txt");    // fileName内容读取到file中 （按照实际情况修改）
     getline(inFile, str);
     int cnt[256] = {};                          //ascii总共256个
     for (int i=0; i<str.length(); i++) {
